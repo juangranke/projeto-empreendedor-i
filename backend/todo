@@ -1,0 +1,3 @@
+Terminar validação de campos passados pelo request, informado diretamente para o middleware da rota.
+Realizar validação do usuário na base de dados retornando o status correto.
+
