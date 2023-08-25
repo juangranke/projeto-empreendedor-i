@@ -1,18 +1,23 @@
-const app = require('express')()
+const express = require('express')
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 require('dotenv').config()
+
 
 const bcrypt = require('bcrypt')
 const isValidApiKey = require('./middleware/isValidApiKey')
+const checkFields = require('./middleware/checkFields')
+
 const { dbConfig, dbQuery, sqlRead, moment } = require('./config/imports')
 
-app.get('/', isValidApiKey, async (req, res) => {
+app.get('/', isValidApiKey, checkFields(), async (req, res) => {
     res.status(200).json({
         mensagem: 'Servidor online.'
     })
 })
 
-app.post('/login', isValidApiKey, (req, res) => {
-    console.log(req.body)
+app.post('/login', isValidApiKey, checkFields(['email', 'senha']), (req, res) => {
     res.status(200).json({ mensagem: 'Funcionou!' })
 })
 
