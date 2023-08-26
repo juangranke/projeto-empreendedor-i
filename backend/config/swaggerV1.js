@@ -11,22 +11,21 @@ module.exports = {
       description: 'Servidor atual'
     },
     {
-      url: 'https://191.252.109.162/v1',
-      description: 'Produção'
-    },
-    {
       url: 'http://localhost:3000/v1',
       description: 'Desenvolvimento'
     }
   ],
   apis: [
-    'src/app/v1/**/*.js',
-    'src/schemas/**/*.yml'
+    'routes/**/*.js'
   ],
   tags: [
     {
       name: 'Login',
       description: 'Login na plataforma.'
+    },
+    {
+      name: 'User',
+      description: 'Ações com o usuário.'
     }
   ],
   consumes: ['application/json'],

@@ -1,7 +1,7 @@
 /**
  * @swagger
- * /user/create:
- *   post:
+ * /user/{id}:
+ *   delete:
  *     summary: "Deleta um usuário."
  *     operationId: DeleteUser
  *     description: "Deleta um usuário."

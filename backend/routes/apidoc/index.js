@@ -11,7 +11,7 @@ module.exports = () => {
   }
   const swaggerSpec = swaggerJSDoc(swaggerOptions)
   const options = {
-    customSiteTitle: 'API Projeto Empreendedor',
+    customSiteTitle: 'API Projeto Empreendedor V1',
     customCss: '.swagger-ui .topbar { display: none }',
     customfavIcon: '/favicon.ico',
     explorer: true,
@@ -43,6 +43,6 @@ module.exports = () => {
   }
 
   router.use('/', swaggerUi.serveFiles(swaggerSpec, options))
-  router.get('/', swaggerUi.setup(swaggerSpec, options, null, null, null, null, 'projeto-empreendedor'))
+  router.get('/', swaggerUi.setup(swaggerSpec, options, null, null, null, null, 'projeto-empreendedor-i'))
   return router
 }
