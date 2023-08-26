@@ -1,6 +1,6 @@
 'use strict'
 
-const { dbConfig, dbQuery, fileRead, moment } = require('../../../config/imports')
+const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const searchUser = fileRead(__dirname, '../sql/searchUser')
 const bcrypt = require('bcrypt')
 

@@ -9,7 +9,7 @@ const checkFields = require('../../middlewares/checkFields')
 module.exports = () => {
 
   router.post('/', isValidApiKey, checkFields(['email', 'senha']), require('./services/login'))
-  router.post('/create', isValidApiKey, checkFields(['nome_completo', 'data_nascimento', 'email', 'password', 'permissao']), require('./services/createLogin'))
+  // router.delete('/', isValidApiKey, checkFields(['id']), require('./services/delete'))
 
   return router
 }

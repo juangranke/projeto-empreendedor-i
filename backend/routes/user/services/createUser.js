@@ -1,12 +1,12 @@
 /**
  * @swagger
- * /login/create:
+ * /user/create:
  *   post:
  *     summary: "Cria um usuário na plataforma."
- *     operationId: postCreateLogin
+ *     operationId: postCreateUser
  *     description: "Cria um usuário na plataforma."
  *     tags:
- *      - Login
+ *      - User
  *     security:
  *       - Apikey: []
  *     requestBody:
@@ -49,13 +49,13 @@
 
 'use strict'
 
-const createLogin = require('../modules/createLogin')
+const createUser = require('../modules/createUser')
 
 module.exports = (req, res) => {
 
     let { nome_completo, data_nascimento, email, password, permissao } = req.body
 
-    createLogin(nome_completo, data_nascimento, email, password, permissao)
+    createUser(nome_completo, data_nascimento, email, password, permissao)
         .then((data) => {
             return res.status(200).json(data)
         })

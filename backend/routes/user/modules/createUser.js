@@ -1,7 +1,7 @@
 'use strict'
 
 const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
-const searchUser = fileRead(__dirname, '../sql/searchUser')
+const searchUser = fileRead(__dirname, '../../login/sql/searchUser')
 const insertUser = fileRead(__dirname, '../sql/insertUser')
 const bcrypt = require('bcrypt')
 require('../../../lib/validations')
@@ -21,14 +21,10 @@ module.exports = (nome_completo, data_nascimento, email, password, permissao) =>
         else {
             dbQuery(dbConfig, insertUser, [nome_completo, data_nascimento, email, bcrypt.hashSync(password, salt), permissao])
                 .then(data => {
-                    if(data.affectedRows.length > 0)
-                        resolve({
-                            mensagem: 'Usuário criado com sucesso.'
-                        })
+                    if(data.affectedRows > 0) resolve({ mensagem: 'Usuário criado com sucesso.' })
                     else reject({ mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.'})
                 })
                 .catch(err => {
-                    console.log(err)
                     reject({ 
                         mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.',
                         erro: err
