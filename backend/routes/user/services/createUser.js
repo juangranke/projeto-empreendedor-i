@@ -27,15 +27,15 @@
  *               email:
  *                 description: "E-mail do usuário"
  *                 type: string
- *                 example: "joaosilva@gmail."
- *               senha:
+ *                 example: "joaosilva@gmail.com"
+ *               password:
  *                 description: "Senha"
  *                 type: string
  *                 example: "12345678"
  *               permissao:
  *                 description: "Permissão do usuário [1-admin/2-medico/3-paciente]"
  *                 type: number
- *                 example: "12345678"
+ *                 example: 3
  *     responses:
  *       200:
  *         description: Usuário criado com sucesso
