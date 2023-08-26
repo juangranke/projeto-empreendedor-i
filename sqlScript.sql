@@ -23,3 +23,4 @@ CREATE TABLE USUARIOS (
 );
 INSERT INTO USUARIOS (nome_completo, data_nascimento, email, password, permissao, criado_em, atualizado_em) VALUES
 ('Usuario Teste', STR_TO_DATE('08/20/1998', '%m/%d/%Y'), 'usuarioteste@gmail.com', '$2b$10$/Sb2Yr4mD3qOuQvDTIVBrOygTUJHuB2pheqZ/5gc03br00DbgPxGG', 3, SYSDATE(), SYSDATE());
+-- Senha: 12345

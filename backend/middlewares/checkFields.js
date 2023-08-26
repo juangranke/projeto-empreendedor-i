@@ -10,7 +10,7 @@ module.exports = (fields = []) => {
 }
 
 function hasContent (field, body) {
-  if(body[field] == '' || body[field] == undefined || body[field].trim().length == 0) return false
+  if(body[field] == '' || body[field] == undefined || new String(body[field]).trim().length == 0) return false
   else return true
 }
   

@@ -1,3 +1,3 @@
-Terminar validação de campos passados pelo request, informado diretamente para o middleware da rota.
-Realizar validação do usuário na base de dados retornando o status correto.
-
+Criar rota de atualização de usuário.
+Atualizar nomenclatura das váriaveis utilizas, acabei deixando algumas em inglês, outras em pt-br.
+Atualizar a nomenclatura dos campos do banco para inglês.
