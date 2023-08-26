@@ -16,11 +16,11 @@
  *           schema:
  *             type: object
  *             properties:
- *               nome_completo:
+ *               full_name:
  *                 description: "Nome do usuário"
  *                 type: string
  *                 example: "João da Silva"
- *               data_nascimento:
+ *               birth_date:
  *                 description: "Data de nascimento"
  *                 type: date
  *                 example: "2001-04-17"
@@ -32,7 +32,7 @@
  *                 description: "Senha"
  *                 type: string
  *                 example: "12345678"
- *               permissao:
+ *               permission:
  *                 description: "Permissão do usuário [1-admin/2-medico/3-paciente]"
  *                 type: number
  *                 example: 3
@@ -53,9 +53,9 @@ const createUser = require('../modules/createUser')
 
 module.exports = (req, res) => {
 
-    let { nome_completo, data_nascimento, email, password, permissao } = req.body
+    let { full_name, birth_date, email, password, permission } = req.body
 
-    createUser(nome_completo, data_nascimento, email, password, permissao)
+    createUser(full_name, birth_date, email, password, permission)
         .then((data) => {
             return res.status(200).json(data)
         })

@@ -6,7 +6,7 @@ const checkBodyFields = require('../../middlewares/checkBodyFields')
 
 module.exports = () => {
 
-    router.post('/create', isValidApiKey, checkBodyFields(['nome_completo', 'data_nascimento', 'email', 'password', 'permissao']), require('./services/createUser'))
+    router.post('/create', isValidApiKey, checkBodyFields(['full_name', 'birth_date', 'email', 'password', 'permission']), require('./services/createUser'))
     router.delete('/:id', isValidApiKey, require('./services/deleteUser'))
 
   return router

@@ -1,13 +1,13 @@
 INSERT INTO
-    USUARIOS
+    USERS
 (
-    nome_completo, 
-    data_nascimento, 
+    full_name, 
+    birth_date, 
     email, 
     password, 
-    permissao, 
-    criado_em, 
-    atualizado_em
+    permission, 
+    created_at, 
+    updated_at
 ) VALUES
 (
     ?,

@@ -1,26 +1,26 @@
-CREATE DATABASE projetoempreendedor;
-USE projetoempreendedor;
+CREATE DATABASE sisc;
+USE sisc;
 
-CREATE TABLE PERMISSOES (
+CREATE TABLE PERMISSIONS (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    permissao VARCHAR(20) NOT NULL
+    permission VARCHAR(20) NOT NULL
 );
-INSERT INTO PERMISSOES (permissao) VALUES ('admin');
-INSERT INTO PERMISSOES (permissao) VALUES ('medico');
-INSERT INTO PERMISSOES (permissao) VALUES ('paciente');
+INSERT INTO PERMISSIONS (permission) VALUES ('admin');
+INSERT INTO PERMISSIONS (permission) VALUES ('medico');
+INSERT INTO PERMISSIONS (permission) VALUES ('paciente');
 
-CREATE TABLE USUARIOS (
+CREATE TABLE USERS (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-	nome_completo VARCHAR(100) NOT NULL,
-    data_nascimento DATE NOT NULL,
+	full_name VARCHAR(100) NOT NULL,
+    birth_date DATE NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(200) NOT NULL,
-    permissao INT NOT NULL,
-    esconder CHAR(1) NOT NULL DEFAULT 0,
-    criado_em DATETIME NOT NULL,
-    atualizado_em DATETIME NOT NULL,
-    FOREIGN KEY (permissao) REFERENCES PERMISSOES(id)
+    permission INT NOT NULL,
+    hide CHAR(1) NOT NULL DEFAULT 0,
+    created_at DATETIME NOT NULL,
+    updated_at DATETIME NOT NULL,
+    FOREIGN KEY (permission) REFERENCES PERMISSIONS(id)
 );
-INSERT INTO USUARIOS (nome_completo, data_nascimento, email, password, permissao, criado_em, atualizado_em) VALUES
+INSERT INTO USERS (full_name, birth_date, email, password, permission, created_at, updated_at) VALUES
 ('Usuario Teste', STR_TO_DATE('08/20/1998', '%m/%d/%Y'), 'usuarioteste@gmail.com', '$2b$10$/Sb2Yr4mD3qOuQvDTIVBrOygTUJHuB2pheqZ/5gc03br00DbgPxGG', 3, SYSDATE(), SYSDATE());
 -- Senha: 12345

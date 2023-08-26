@@ -6,12 +6,12 @@ const insertUser = fileRead(__dirname, '../sql/insertUser')
 const bcrypt = require('bcrypt')
 require('../../../lib/validations')
 
-module.exports = (nome_completo, data_nascimento, email, password, permissao) => {
+module.exports = (full_name, birth_date, email, password, permission) => {
   return new Promise(async (resolve, reject) => {
 
     if(password.length < 8) reject({ mensagem: 'Por favor, informe uma senha com mais de 8 caracteres.' })
-    if(data_nascimento.hasSpace() || email.hasSpace() || password.hasSpace()) 
-        reject({ mensagem: "Os campos ['data_nascimento', 'email', 'senha'] não podem conter nenhum espaço." })
+    if(birth_date.hasSpace() || email.hasSpace() || password.hasSpace()) 
+        reject({ mensagem: "Os campos ['birth_date', 'email', 'password'] não podem conter nenhum espaço." })
 
     let salt = 10
 
@@ -19,7 +19,7 @@ module.exports = (nome_completo, data_nascimento, email, password, permissao) =>
         let user = await dbQuery(dbConfig, searchUser, [email.trim()])
         if(user.length > 0) reject({ mensagem: 'Usuário já cadastrado na plataforma.' })
         else {
-            dbQuery(dbConfig, insertUser, [nome_completo, data_nascimento, email, bcrypt.hashSync(password, salt), permissao])
+            dbQuery(dbConfig, insertUser, [full_name, birth_date, email, bcrypt.hashSync(password, salt), permission])
                 .then(data => {
                     if(data.affectedRows > 0) resolve({ mensagem: 'Usuário criado com sucesso.' })
                     else reject({ mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.'})

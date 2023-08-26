@@ -20,7 +20,7 @@
  *                 description: "E-mail do usuário"
  *                 type: string
  *                 example: "joaosilva@gmail.com"
- *               senha:
+ *               password:
  *                 description: "Senha"
  *                 type: string
  *                 example: "12345678"
@@ -40,7 +40,7 @@
 const login = require('../modules/login')
 
 module.exports = (req, res) => {
-    login(req.body.email, req.body.senha)
+    login(req.body.email, req.body.password)
         .then((data) => {
             return res.status(200).json(data)
         })

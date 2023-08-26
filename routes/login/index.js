@@ -8,7 +8,7 @@ const checkBodyFields = require('../../middlewares/checkBodyFields')
 
 module.exports = () => {
 
-  router.post('/', isValidApiKey, checkBodyFields(['email', 'senha']), require('./services/login'))
+  router.post('/', isValidApiKey, checkBodyFields(['email', 'password']), require('./services/login'))
 
   return router
 }

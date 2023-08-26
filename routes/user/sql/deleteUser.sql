@@ -1,5 +1,5 @@
 DELETE 
-FROM USUARIOS
+FROM USERS
 WHERE
     id = ?
 ;
