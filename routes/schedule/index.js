@@ -6,5 +6,7 @@ const checkBodyFields = require('../../middlewares/checkBodyFields')
 
 module.exports = () => {
   router.get('/specialtys', isValidApiKey, require('./services/getSpecialtys'))
+  router.get('/professionals/:specialty', isValidApiKey, require('./services/getProfessionals'))
+
   return router
 }
