@@ -8,12 +8,9 @@ module.exports = (specialty) => {
   return new Promise(async (resolve, reject) => {
     try {
         if(specialty == undefined || specialty.isEmpty()) reject({ mensagem: 'Especialidade inválida.' })
-        let professionals = await dbQuery(dbConfig, searchProfessionals)
-
-        resolve({
-            mensagem: 'Profissionais disponíveis.',
-            dados: professionals
-        })
+        let professionals = await dbQuery(dbConfig, searchProfessionals, [specialty])
+        if(professionals.length > 0) resolve({ mensagem: 'Profissionais disponíveis.', dados: professionals })
+        else reject({ mensagem: 'Não há profissionais disponíveis.', dados: professionals })
     } catch(err) {
         reject({
             mensagem: 'Ocorreu um erro ao busca os profissionais disponíveis.',
