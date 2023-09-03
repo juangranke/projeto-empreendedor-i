@@ -11,6 +11,7 @@ module.exports = () => {
 
   router.get('/appointments/:idUser', isValidApiKey, require('./services/getAppointments'))
   router.post('/appointment/:typeSchedule/:idSchedule/:idPatient', isValidApiKey, require('./services/postAppointment'))
+  router.delete('/appointment/:idSchedule', isValidApiKey, require('./services/deleteAppointment'))
 
   return router
 }
