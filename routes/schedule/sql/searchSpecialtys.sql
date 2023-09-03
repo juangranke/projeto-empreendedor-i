@@ -1,8 +1,10 @@
 SELECT DISTINCT
-	med.especialidade
+	esp.id,
+    esp.desc_especialidade
 FROM
 	agenda age,
-    medicos med
+    medicos med,
+    especialidades esp
 WHERE
 	age.data > DATE_FORMAT(NOW(), '%Y-%m-%d')
     AND age.id_medico IS NOT NULL
@@ -10,5 +12,6 @@ WHERE
     AND age.tipo_agenda = ?
     
     AND age.id_medico = med.id_medico
+    AND esp.id = med.id_especialidade
 ORDER BY
-	med.especialidade ASC;
+	esp.desc_especialidade ASC;

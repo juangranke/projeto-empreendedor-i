@@ -7,11 +7,10 @@ module.exports = (typeSchedule) => {
   return new Promise(async (resolve, reject) => {
     try {
         let specialtys = await dbQuery(dbConfig, searchSpecialtys, [typeSchedule])
-        let dataSpecialtys = specialtys.map(item => item.especialidade)
 
         resolve({
             mensagem: 'Especialidades com agenda disponível.',
-            dados: dataSpecialtys
+            dados: specialtys
         })
 
     } catch(err) {

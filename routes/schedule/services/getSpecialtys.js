@@ -16,6 +16,7 @@
  *         description: "Tipo de agenda"
  *         schema:
  *           type: number
+ *           example: 1
  *     responses:
  *       200:
  *         description: Especialidades
