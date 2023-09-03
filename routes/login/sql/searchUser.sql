@@ -1,7 +1,7 @@
 SELECT
     *
 FROM
-    USERS
+    usuarios
 WHERE
     email = ?
 ;

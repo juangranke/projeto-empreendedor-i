@@ -1,12 +1,12 @@
 SELECT
     id,
-    full_name,
-    birth_date,
+    nome_completo,
+    data_nascimento,
     email,
-    permission,
-    hide
+    permissao,
+    esconder
 FROM
-    USERS
+    usuarios
 WHERE
-    ID = ?
+    id = ?
 ;
