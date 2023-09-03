@@ -1,7 +1,7 @@
 SELECT DISTINCT
 	med.nome_medico,
     med.id_medico,
-    med.especialidade,
+    med.id_especialidade,
     med.crm,
 	age.data,
     age.horario
@@ -16,7 +16,7 @@ WHERE
     AND age.id_medico = med.id_medico
     
     AND age.tipo_agenda = ?
-    AND UPPER(TRIM(med.especialidade)) = UPPER(TRIM(?))
+    AND med.id_especialidade = ?
 ORDER BY
 	nome_medico ASC,
 	data ASC,

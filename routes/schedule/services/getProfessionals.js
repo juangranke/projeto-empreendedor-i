@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /schedule/professionals/{typeSchedule}/{specialty}:
+ * /schedule/professionals/{typeSchedule}/{idSpecialty}:
  *   get:
  *     summary: "Retorna os médicos disponíveis para a especialidade."
  *     operationId: getProfessionals
@@ -18,12 +18,12 @@
  *           type: number
  *           example: 5
  *       - in: path
- *         name: specialty
+ *         name: idSpecialty
  *         required: true
  *         description: "Nome da especialidade"
  *         schema:
- *           type: string
- *           example: "Clinico Geral"
+ *           type: number
+ *           example: 1
  *     responses:
  *       200:
  *         description: Profissionais da especialidade
@@ -41,7 +41,7 @@ const getProfessionals = require('../modules/getProfessionals')
 
 module.exports = (req, res) => {
 
-    getProfessionals(req.params.typeSchedule, req.params.specialty)
+    getProfessionals(req.params.typeSchedule, req.params.idSpecialty)
         .then((data) => {
             return res.status(200).json(data)
         })
