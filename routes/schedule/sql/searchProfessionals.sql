@@ -3,8 +3,8 @@ SELECT DISTINCT
     med.id_medico,
     med.id_especialidade,
     med.crm,
-	age.data,
-    age.horario
+	DATE_FORMAT(age.data, '%Y-%m-%d') AS data,
+    DATE_FORMAT(age.horario, '%H:%i') AS horario
 FROM
     agenda age,
     medicos med
