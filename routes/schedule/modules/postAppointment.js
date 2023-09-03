@@ -3,10 +3,10 @@
 const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const postAppointment = fileRead(__dirname, '../../schedule/sql/postAppointment')
 
-module.exports = (typeSchedule, idSchedule, idPatient) => {
+module.exports = (typeSchedule, idSchedule, idUser) => {
   return new Promise(async (resolve, reject) => {
     try {
-        let appointment = await dbQuery(dbConfig, postAppointment, [idPatient, idSchedule, typeSchedule])
+        let appointment = await dbQuery(dbConfig, postAppointment, [idUser, idSchedule, typeSchedule])
         if(appointment.affectedRows > 0) resolve({ mensagem: 'Agendamento realizado com sucesso.' })
         else reject({ mensagem: 'Parâmetro informado inválido.' })
     } catch(err) {

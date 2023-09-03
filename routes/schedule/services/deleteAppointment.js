@@ -1,7 +1,7 @@
 /**
  * @swagger
  * /schedule/appointment/{idSchedule}:
- *   get:
+ *   delete:
  *     summary: "Deleta um agendamento."
  *     operationId: deleteAppointment
  *     description: "Deleta um agendamento."

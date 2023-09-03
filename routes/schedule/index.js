@@ -10,7 +10,7 @@ module.exports = () => {
   router.get('/dates/:typeSchedule/:idSpecialty/:idProfessional', isValidApiKey, require('./services/getDates'))
 
   router.get('/appointments/:idUser', isValidApiKey, require('./services/getAppointments'))
-  router.post('/appointment/:typeSchedule/:idSchedule/:idPatient', isValidApiKey, require('./services/postAppointment'))
+  router.post('/appointment/:typeSchedule/:idSchedule/:idUser', isValidApiKey, require('./services/postAppointment'))
   router.delete('/appointment/:idSchedule', isValidApiKey, require('./services/deleteAppointment'))
 
   return router
