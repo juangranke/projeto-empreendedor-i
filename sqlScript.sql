@@ -24,3 +24,9 @@ CREATE TABLE USERS (
 INSERT INTO USERS (full_name, birth_date, email, password, permission, created_at, updated_at) VALUES
 ('Usuario Teste', STR_TO_DATE('08/20/1998', '%m/%d/%Y'), 'usuarioteste@gmail.com', '$2b$10$/Sb2Yr4mD3qOuQvDTIVBrOygTUJHuB2pheqZ/5gc03br00DbgPxGG', 3, SYSDATE(), SYSDATE());
 -- Senha: 12345
+
+CREATE TABLE especialidades (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    desc_especialidade VARCHAR(100) NOT NULL
+);
+INSERT INTO especialidades (desc_especialidade) VALUES ('Clinico Geral');

@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /schedule/specialtys:
+ * /schedule/specialtys/{typeSchedule}:
  *   get:
  *     summary: "Retorna as especialidades disponíveis."
  *     operationId: getSpecialtys
@@ -9,6 +9,13 @@
  *      - Schedule
  *     security:
  *       - Apikey: []
+ *     parameters:
+ *       - in: path
+ *         name: typeSchedule
+ *         required: true
+ *         description: "Tipo de agenda"
+ *         schema:
+ *           type: number
  *     responses:
  *       200:
  *         description: Especialidades
@@ -26,7 +33,7 @@ const getSpecialtys = require('../modules/getSpecialtys')
 
 module.exports = (req, res) => {
 
-    getSpecialtys()
+    getSpecialtys(req.params.typeSchedule)
         .then((data) => {
             return res.status(200).json(data)
         })

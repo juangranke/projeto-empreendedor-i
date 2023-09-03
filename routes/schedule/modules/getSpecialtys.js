@@ -3,10 +3,10 @@
 const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const searchSpecialtys = fileRead(__dirname, '../../schedule/sql/searchSpecialtys')
 
-module.exports = () => {
+module.exports = (typeSchedule) => {
   return new Promise(async (resolve, reject) => {
     try {
-        let specialtys = await dbQuery(dbConfig, searchSpecialtys)
+        let specialtys = await dbQuery(dbConfig, searchSpecialtys, [typeSchedule])
         let dataSpecialtys = specialtys.map(item => item.especialidade)
 
         resolve({

@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /schedule/dates/{specialty}/{idProfessional}:
+ * /schedule/dates/{typeSchedule}/{idSpecialty}/{idProfessional}:
  *   get:
  *     summary: "Retorna as datas e horários disponíveis do médico."
  *     operationId: getDates
@@ -9,6 +9,28 @@
  *      - Schedule
  *     security:
  *       - Apikey: []
+ *     parameters:
+ *       - in: path
+ *         name: typeSchedule
+ *         required: true
+ *         description: "Tipo de agenda"
+ *         schema:
+ *           type: number
+ *           example: 5
+ *       - in: path
+ *         name: idSpecialty
+ *         required: true
+ *         description: "Nome da especialidade"
+ *         schema:
+ *           type: number
+ *           example: 1
+ *       - in: path
+ *         name: idProfessional
+ *         required: true
+ *         description: "Id do profissional"
+ *         schema:
+ *           type: number
+ *           example: 1
  *     responses:
  *       200:
  *         description: Datas disponíveis
@@ -25,8 +47,7 @@
 const getDates = require('../modules/getDates')
 
 module.exports = (req, res) => {
-
-    getDates(req.params.specialty, req.params.idProfessional)
+    getDates(req.params.typeSchedule, req.params.idSpecialty, req.params.idProfessional)
         .then((data) => {
             return res.status(200).json(data)
         })

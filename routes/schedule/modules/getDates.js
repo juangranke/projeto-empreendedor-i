@@ -4,12 +4,14 @@ const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const searchDates = fileRead(__dirname, '../../schedule/sql/searchDates')
 require('../../../lib/validations')
 
-module.exports = (specialty, idProfessional) => {
+module.exports = (typeSchedule, idSpecialty, idProfessional) => {
   return new Promise(async (resolve, reject) => {
     try {
-        if(specialty == undefined || specialty.isEmpty() || idProfessional == undefined || idProfessional.isEmpty()) 
-            reject({ mensagem: 'Parâmetro inválido.' })
-        let dates = await dbQuery(dbConfig, searchDates, [idProfessional])
+        if(typeSchedule == undefined || typeSchedule.isEmpty() 
+        || idSpecialty == undefined || idSpecialty.isEmpty()
+        || idProfessional == undefined || idProfessional.isEmpty()) {
+            reject({ mensagem: 'Parâmetro inválido.' }) }
+        let dates = await dbQuery(dbConfig, searchDates, [typeSchedule, idProfessional, idSpecialty])
         if(dates.length > 0) resolve({ mensagem: 'Datas disponíveis.', dados: dates })
         else reject({ mensagem: 'Não há datas disponíveis para marcação.', dados: dates })
     } catch(err) {

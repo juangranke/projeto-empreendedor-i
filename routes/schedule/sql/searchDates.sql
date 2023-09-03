@@ -1,13 +1,19 @@
 SELECT
-	id_agenda,
-    DATE_FORMAT(data, '%Y-%m-%d') AS data,
-    DATE_FORMAT(horario, '%H:%i') AS horario
+	age.id_agenda AS id_agenda,
+    DATE_FORMAT(age.data, '%Y-%m-%d') AS data,
+    DATE_FORMAT(age.horario, '%H:%i') AS horario
 FROM
-	agenda
+	agenda age,
+    medicos med
 WHERE
-	status_agenda = 4
-    AND id_medico IS NOT NULL
-    AND id_medico = ?
+	age.status_agenda = 4
+    AND age.tipo_agenda = ?
+    AND age.id_medico IS NOT NULL
+    AND age.id_medico = ?
+    
+    AND age.id_medico = med.id_medico
+    
+    AND med.id_especialidade = ?
 ORDER BY
-	data ASC,
-    horario ASC;
+	age.data ASC,
+    age.horario ASC;
