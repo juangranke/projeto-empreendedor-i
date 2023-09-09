@@ -10,6 +10,7 @@ WHERE
     AND age.tipo_agenda = ?
     AND age.id_medico IS NOT NULL
     AND age.id_medico = ?
+    AND age.data > sysdate()
     
     AND age.id_medico = med.id_medico
     
