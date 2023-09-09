@@ -1,5 +1,5 @@
 SELECT
-    id_especialidade,
+    7 AS id_especialidade,
     id_vacina,
     nome_vacina,
     fabricante,
