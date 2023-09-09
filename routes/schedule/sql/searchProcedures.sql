@@ -1,5 +1,6 @@
 SELECT
     6 AS id_especialidade,
+    id,
     cod_procedimento,
     desc_procedimento
 FROM

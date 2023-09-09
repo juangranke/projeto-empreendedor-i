@@ -3,6 +3,7 @@
 const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const searchSpecialtys = fileRead(__dirname, '../../schedule/sql/searchSpecialtys')
 const searchProcedures = fileRead(__dirname, '../../schedule/sql/searchProcedures')
+const searchVaccines = fileRead(__dirname, '../../schedule/sql/searchVaccines')
 
 module.exports = (typeSchedule) => {
   return new Promise(async (resolve, reject) => {
@@ -14,6 +15,8 @@ module.exports = (typeSchedule) => {
           specialtys = await dbQuery(dbConfig, searchSpecialtys, [typeSchedule])
         } else if(typeSchedule == 7) {
           specialtys = await dbQuery(dbConfig, searchProcedures)
+        } else if(typeSchedule == 8) { 
+          specialtys = await dbQuery(dbConfig, searchVaccines)
         } else {
           reject({
             mensagem: 'Ocorreu um erro ao buscar as especialidades disponíveis.'
