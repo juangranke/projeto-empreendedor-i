@@ -13,6 +13,7 @@ module.exports = (typeSchedule) => {
 
         if(typeSchedule == 5 || typeSchedule == 6) {
           specialtys = await dbQuery(dbConfig, searchSpecialtys, [typeSchedule])
+          console.log(specialtys)
         } else if(typeSchedule == 7) {
           specialtys = await dbQuery(dbConfig, searchProcedures)
         } else if(typeSchedule == 8) { 
@@ -29,8 +30,9 @@ module.exports = (typeSchedule) => {
               dados: specialtys
           })
         } else {
-          reject({
-            mensagem: 'Ocorreu um erro ao buscar as especialidades disponíveis.'
+          resolve({
+            mensagem: 'Não há especialidades disponíveis.',
+            dados: []
           })
         }
 
