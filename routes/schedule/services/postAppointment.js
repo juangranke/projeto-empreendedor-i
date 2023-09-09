@@ -24,6 +24,17 @@
  *         schema:
  *           type: number
  *           example: 5
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               descricao_procedimento:
+ *                 description: "Descrição do procedimento"
+ *                 type: string
+ *                 example: "Mamas"
  *     responses:
  *       200:
  *         description: Agendamento realizado
@@ -41,7 +52,7 @@ const postAppointment = require('../modules/postAppointment')
 
 module.exports = (req, res) => {
 
-    postAppointment(req.params.idSchedule, req.params.idUser)
+    postAppointment(req.params.idSchedule, req.params.idUser, req.body.description_procedure)
         .then((data) => {
             return res.status(200).json(data)
         })
