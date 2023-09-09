@@ -5,4 +5,5 @@ module.exports = (app) => {
     app.use('/v1/user', require('./user')(app))
     app.use('/v1/schedule', require('./schedule')(app))
     app.use('/v1/pharmacies', require('./pharmacies')(app))
+    app.use('/v1/hospitals', require('./hospitals')(app))
   }
