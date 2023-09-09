@@ -30,6 +30,7 @@ module.exports = () => {
         console.log(data)
         
     } catch(err) {
+      console.log(err)
         reject({
             mensagem: 'Ocorreu um erro ao buscar as farmácias.',
             erro: err
