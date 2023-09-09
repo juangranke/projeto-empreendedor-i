@@ -30,3 +30,10 @@ CREATE TABLE especialidades (
     desc_especialidade VARCHAR(100) NOT NULL
 );
 INSERT INTO especialidades (desc_especialidade) VALUES ('Clinico Geral');
+
+
+create table procedimentos (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    cod_procedimento varchar(8) not null,
+    desc_procedimento varchar(100) not null
+);
