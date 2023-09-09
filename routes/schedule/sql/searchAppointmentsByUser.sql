@@ -14,6 +14,7 @@ FROM
 WHERE
 	age.id_usuario IS NOT NULL
     AND age.status_agenda = 1
+    AND age.tipo_agenda = ?
     AND age.id_usuario = ?
     
     AND age.tipo_agenda = tpage.id_tipo_agenda
