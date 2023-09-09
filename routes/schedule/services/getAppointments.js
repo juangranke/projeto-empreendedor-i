@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /schedule/appointments/{typeSchedule}/{idUser}:
+ * /schedule/appointments/{typeSchedule}/{idUser}/{scheduleStatus}:
  *   get:
  *     summary: "Retorna os agendamentos do usuário."
  *     operationId: getAppointments
@@ -24,6 +24,13 @@
  *         schema:
  *           type: number
  *           example: 1
+ *       - in: path
+ *         name: scheduleStatus
+ *         required: true
+ *         description: "Id do tipo de status da agenda"
+ *         schema:
+ *           type: number
+ *           example: 1
  *     responses:
  *       200:
  *         description: Agendamentos
@@ -40,7 +47,7 @@
 const getAppointments = require('../modules/getAppointments')
 
 module.exports = (req, res) => {
-    getAppointments(req.params.typeSchedule, req.params.idUser)
+    getAppointments(req.params.typeSchedule, req.params.idUser, req.params.scheduleStatus)
         .then((data) => {
             return res.status(200).json(data)
         })

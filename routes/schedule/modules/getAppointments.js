@@ -4,11 +4,11 @@ const { dbConfig, dbQuery, fileRead } = require('../../../config/imports')
 const searchAppointmentsByUser = fileRead(__dirname, '../../schedule/sql/searchAppointmentsByUser')
 require('../../../lib/validations')
 
-module.exports = (typeSchedule, idUser) => {
+module.exports = (typeSchedule, idUser, scheduleStatus) => {
   return new Promise(async (resolve, reject) => {
     try {
         if(idUser == undefined || idUser.isEmpty()) reject({ mensagem: 'Parâmetro inválido.' })
-        let appointments = await dbQuery(dbConfig, searchAppointmentsByUser, [typeSchedule, idUser])
+        let appointments = await dbQuery(dbConfig, searchAppointmentsByUser, [scheduleStatus, typeSchedule, idUser])
         if(appointments.length > 0) resolve({ mensagem: 'Agendamentos.', dados: appointments })
         else reject({ mensagem: 'Não há agendamentos.', dados: appointments })
     } catch(err) {

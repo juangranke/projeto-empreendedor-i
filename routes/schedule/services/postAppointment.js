@@ -1,6 +1,6 @@
 /**
  * @swagger
- * /schedule/appointment/{typeSchedule}/{idSchedule}/{idUser}:
+ * /schedule/appointment/{idSchedule}/{idUser}:
  *   post:
  *     summary: "Realiza o agendamento."
  *     operationId: postAppointment
@@ -10,13 +10,6 @@
  *     security:
  *       - Apikey: []
  *     parameters:
- *       - in: path
- *         name: typeSchedule
- *         required: true
- *         description: "Tipo de agenda"
- *         schema:
- *           type: number
- *           example: 5
  *       - in: path
  *         name: idSchedule
  *         required: true
@@ -48,7 +41,7 @@ const postAppointment = require('../modules/postAppointment')
 
 module.exports = (req, res) => {
 
-    postAppointment(req.params.typeSchedule, req.params.idSchedule, req.params.idUser)
+    postAppointment(req.params.idSchedule, req.params.idUser)
         .then((data) => {
             return res.status(200).json(data)
         })
