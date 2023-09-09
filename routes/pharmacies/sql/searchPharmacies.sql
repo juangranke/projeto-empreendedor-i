@@ -1,6 +1,7 @@
 SELECT
-    *
+	*
 FROM
-    farmacia
+	farmacia,
+    medicamento
 ORDER BY
-    nome_farmacia ASC;
+	nome_farmacia ASC;
