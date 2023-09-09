@@ -8,7 +8,7 @@ module.exports = () => {
   return new Promise(async (resolve, reject) => {
     try {
         let pharmacies = await dbQuery(dbConfig, searchPharmacies)
-        if(pharmacies.length == 0) resolve({ mensagem: 'Farmácias disponíveis.', dados: pharmacies })
+        if(pharmacies.length == 0) reject({ mensagem: 'Não há farmácias disponíveis.', dados: pharmacies })
         else {
 
           let listPharmacies = new Set()
