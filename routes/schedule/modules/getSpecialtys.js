@@ -38,7 +38,7 @@ module.exports = (typeSchedule) => {
 
     } catch(err) {
         reject({
-            mensagem: 'Ocorreu um erro ao buscar as especialidades disponíveis.',
+            mensagem: 'Ocorreu um erro ao buscar as especialidades disponiveis.',
             erro: err
         })
     }
