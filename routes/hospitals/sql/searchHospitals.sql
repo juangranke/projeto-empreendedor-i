@@ -1,6 +1,8 @@
 SELECT
-    *
+    idhospital,
+    nome_hospital,
+    endereco
 FROM
-    hospitals
+    hospital
 ORDER BY
     nome_hospital ASC;
