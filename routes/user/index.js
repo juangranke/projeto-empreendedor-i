@@ -25,5 +25,7 @@ module.exports = () => {
 
   router.post('/medicalrecord', isValidApiKey, upload.single('pdf'), require('./services/postMedicalRecord'))
 
+  router.post('/physicalassessment/:id', isValidApiKey, require('./services/postPhysicalAssessment'))
+
   return router
 }

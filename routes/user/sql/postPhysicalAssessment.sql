@@ -1,0 +1,19 @@
+INSERT INTO 
+    avaliacao_fisica 
+(
+    data_avaliacao, 
+    id_usuario, 
+    peso, 
+    altura, 
+    porcentagem_gordura, 
+    metabolismo_basal
+) 
+VALUES
+(
+    sysdate(), 
+    ?, 
+    ?, 
+    ?, 
+    ?, 
+    ?
+);
