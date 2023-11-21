@@ -22,9 +22,13 @@ module.exports = (full_name, birth_date, email, password, permission) => {
             dbQuery(dbConfig, insertUser, [full_name, birth_date, email, bcrypt.hashSync(password, salt), permission])
                 .then(data => {
                     if(data.affectedRows > 0) resolve({ mensagem: 'Usuário criado com sucesso.' })
-                    else reject({ mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.'})
+                    else {
+                        console.log(26, err)
+                        reject({ mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.'})
+                    }
                 })
                 .catch(err => {
+                    console.log(31, err)
                     reject({ 
                         mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.',
                         erro: err
@@ -32,6 +36,7 @@ module.exports = (full_name, birth_date, email, password, permission) => {
                 })
         }
     } catch(err) {
+        console.log(39, err)
         reject({
             mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.',
             erro: err
