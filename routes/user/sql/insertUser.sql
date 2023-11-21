@@ -1,5 +1,5 @@
 INSERT INTO
-    usuarios
+    USUARIOS
 (
     nome_completo,
     data_nascimento,
