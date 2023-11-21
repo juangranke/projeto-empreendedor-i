@@ -23,7 +23,7 @@ module.exports = (full_name, birth_date, email, password, permission) => {
                 .then(data => {
                     if(data.affectedRows > 0) resolve({ mensagem: 'Usuário criado com sucesso.' })
                     else {
-                        console.log(26, err)
+                        console.log(26, 'Erro genérico')
                         reject({ mensagem: 'Ocorreu um erro ao criar o cadastro do usuário.'})
                     }
                 })
