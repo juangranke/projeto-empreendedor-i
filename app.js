@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const morgan = require('morgan')
 const moment = require('moment')
+const helmet = require('helmet')
 
 morgan.token('customDate', () => moment().format('DD/MM/YYYY HH:mm:ss'))
 morgan.token('statusColor', (req, res) => {
@@ -18,6 +19,7 @@ morgan.token('statusColor', (req, res) => {
 app.use(morgan(':customDate \x1b[33m:method\x1b[0m :url :statusColor - :response-time ms - :res[content-length]'))
 
 app.use(cors())
+app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
