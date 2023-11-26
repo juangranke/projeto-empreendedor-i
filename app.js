@@ -19,15 +19,6 @@ morgan.token('statusColor', (req, res) => {
 app.use(morgan(':customDate \x1b[33m:method\x1b[0m :url :statusColor - :response-time ms - :res[content-length]'))
 
 app.use(cors())
-app.use(function (req, res, next) {
-
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-  res.setHeader('Access-Control-Allow-Credentials', true)
-
-  next()
-})
 app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
