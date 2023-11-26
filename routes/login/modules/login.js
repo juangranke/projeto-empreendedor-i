@@ -21,11 +21,14 @@ module.exports = (email, password) => {
                     permission: user[0].permission
                 }
             })
-        else
+        else {
+            console.log('Aqui fdp')
             reject({
                 mensagem: 'Senha informada inválida.',
             })
+        }
     } catch(err) {
+        console.log(31, err)
         reject({
             mensagem: 'Ocorreu um erro ao realizar o login.',
             erro: err
