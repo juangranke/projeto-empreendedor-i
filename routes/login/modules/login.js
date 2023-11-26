@@ -10,7 +10,7 @@ module.exports = (email, password) => {
     try {
         let user = await dbQuery(dbConfig, searchUser, [email.trim()])
         if(user.length == 0) reject({ mensagem: 'E-mail não encontrado ou inválido.' })
-
+        console.log(13, user)
         if(bcrypt.compareSync(password, user[0].password))
             resolve({
                 mensagem: 'Usuário logado com sucesso',
