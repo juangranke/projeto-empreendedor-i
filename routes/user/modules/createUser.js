@@ -16,6 +16,7 @@ module.exports = (full_name, birth_date, email, password, permission) => {
     let salt = 10
 
     try {
+        console.log(full_name, birth_date, email, bcrypt.hashSync(password, salt), permission)
         let user = await dbQuery(dbConfig, searchUser, [email.trim()])
         if(user.length > 0) reject({ mensagem: 'Usuário já cadastrado na plataforma.' })
         else {
